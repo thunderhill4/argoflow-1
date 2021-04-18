@@ -14,7 +14,12 @@ spec:
       name: example-issuer-account-key
     # Add a single challenge solver, HTTP01 using nginx
     solvers:
-    - dns01: {}
+    - dns01:
+        cloudflare:
+          email: vanderspek.david@gmail.com
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -32,4 +37,9 @@ spec:
       name: example-issuer-account-key
     # Add a single challenge solver, HTTP01 using nginx
     solvers:
-    - dns01: {}
+    - dns01:
+        cloudflare:
+          email: vanderspek.david@gmail.com
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token
