@@ -4,7 +4,7 @@ metadata:
   name: dex
 data:
   config.yaml: |
-    issuer: http://dex.auth.svc.cluster.local:5556/dex
+    issuer: https://kubeflow.abs-cloud.nl/dex
     storage:
       type: kubernetes
       config:
@@ -30,3 +30,24 @@ data:
       redirectURIs: ["/login/oidc"]
       name: 'Dex Login Application'
       secretEnv: OIDC_CLIENT_SECRET
+    connectors:
+    - type: gitlab
+      # Required field for connector id.
+      id: gitlab
+      # Required field for connector name.
+      name: GitLab
+      config:
+        # optional, default = https://gitlab.com
+        baseURL: https://gitlab.abs-cloud.nl
+        # Credentials can be string literals or pulled from the environment.
+        clientID: 49040951482b153b63987d6f3ab6e76b025e03b2154dbc3b4bc5db488f55a5cd
+        clientSecret: aae50d43d737df870fdcbfb77ad33ccc8808df44b1c32a35a51449894edb3306
+        redirectURI: https://kubeflow.abs-cloud.nl/dex/callback
+        # Optional groups whitelist, communicated through the "groups" scope.
+        # If `groups` is omitted, all of the user's GitLab groups are returned when the groups scope is present.
+        # If `groups` is provided, this acts as a whitelist - only the user's GitLab groups that are in the configured `groups` below will go into the groups claim.  Conver>
+        # groups:
+        # - my-group
+        # flag which will switch from using the internal GitLab id to the users handle (@mention) as the user id.
+        # It is possible for a user to change their own user name but it is very rare for them to do so
+        useLoginAsID: false
