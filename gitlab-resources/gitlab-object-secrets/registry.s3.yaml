@@ -5,8 +5,8 @@
 #   See https://gitlab.com/gitlab-org/charts/gitlab/blob/master/doc/advanced/external-object-storage
 s3:
   bucket: gitlab-registry-storage
-  accesskey: SJW0F2ISSZ94D2YFOBQN
-  secretkey: tKuiG1mD4VSalQDZoIcWzLMg7XfTBDVd49og9foZ
+  accesskey: M6O8N5FB35DJ6WN5MC8Q
+  secretkey: UZAoZDLknG8XB936LmPO9q6cGwZ1S7FDKfu2RX6W
   region: us-east-1
   regionendpoint: "https://rgw.abs-cloud.nl:443"
   v4auth: true

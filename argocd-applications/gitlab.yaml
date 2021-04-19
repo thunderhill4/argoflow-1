@@ -79,8 +79,6 @@ spec:
         value : connection
       - name : global.appConfig.backups.bucket
         value : gitlab-backup-storage
-      - name : global.grafana.enabled
-        value : "true"
       - name : gitlab-runner.runners.privileged
         value : "true"
       - name : certmanager.install

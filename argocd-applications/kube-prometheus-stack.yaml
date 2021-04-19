@@ -19,6 +19,46 @@ spec:
         value: grafana-abs-cloud-nl
       - name: grafana.ingress.tls[0].hosts[0]
         value: grafana.abs-cloud.nl
+      - name: grafana.persistence.type
+        value: pvc
+      - name: grafana.persistence.enabled
+        value: "true"
+      - name: grafana.persistence.storageClassName
+        value: rook-ceph-block
+      - name: grafana.persistence.accessModes[0]
+        value: ReadWriteOnce
+      - name:  grafana.persistence.size
+        value: 20Gi
+      - name: grafana.grafana\.ini.server.root_url
+        value: https://grafana.abs-cloud.nl
+      - name: grafana.grafana\.ini.auth\.gitlab.enabled
+        value: "true"
+      - name: grafana.grafana\.ini.auth\.gitlab.allow_sign_up
+        value: "true"
+      - name: grafana.grafana\.ini.auth\.gitlab.scopes
+        value: read_api
+      - name: grafana.grafana\.ini.auth\.gitlab.auth_url
+        value: https://gitlab.abs-cloud.nl/oauth/authorize
+      - name: grafana.grafana\.ini.auth\.gitlab.token_url
+        value: https://gitlab.abs-cloud.nl/oauth/token
+      - name: grafana.grafana\.ini.auth\.gitlab.api_url
+        value: https://gitlab.abs-cloud.nl/api/v4
+      - name: grafana.grafana\.ini.auth\.gitlab.client_id
+        value: 19053ac7d6edb28b651ce9f0600242bf10ab620332427407ac24474347069e63
+      - name: grafana.grafana\.ini.auth\.gitlab.client_secret
+        value: 0b7e47ebfe16375cf92800ed8aad3fc457c29e92dbf4fdf0691c2ef81cb94cf9
+      - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.storageClassName
+        value: rook-ceph-block
+      - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.accessModes[0]
+        value: ReadWriteOnce
+      - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage
+        value: 50Gi
+      - name: kubeEtcd.endpoints[0]
+        value: "10.14.0.33"
+      - name: kubeEtcd.endpoints[1]
+        value: "10.14.0.2"
+      - name: kubeEtcd.endpoints[2]
+        value: "10.14.0.93"
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
