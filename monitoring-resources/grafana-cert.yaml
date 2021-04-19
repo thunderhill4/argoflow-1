@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana-abs-cloud-nl
+  namespace: monitoring
+spec:
+  secretName: grafana-abs-cloud-nl
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: grafana.abs-cloud.nl
+  dnsNames:
+    - grafana.abs-cloud.nl
