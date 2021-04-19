@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gitlab-abs-cloud-nl
+  namespace: gitlab
+spec:
+  secretName: gitlab-abs-cloud-nl
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: gitlab.abs-cloud.nl
+  dnsNames:
+    - gitlab.abs-cloud.nl

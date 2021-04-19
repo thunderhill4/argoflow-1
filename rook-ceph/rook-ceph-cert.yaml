@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: rook-ceph-abs-cloud-nl
+  namespace: rook-ceph
+spec:
+  secretName: rook-ceph-abs-cloud-nl
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: rook-ceph.abs-cloud.nl
+  dnsNames:
+    - rook-ceph.abs-cloud.nl

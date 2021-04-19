@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- namespace.yaml
+- gitlab-admin-service-account.yaml
+- gitlab-cert.yaml
+- registry-cert.yaml
+- object-storage-buckets/gitlab-artifact-bucket.yaml
+- object-storage-buckets/gitlab-backup-bucket.yaml
+- object-storage-buckets/gitlab-dependency-proxy-bucket.yaml
+- object-storage-buckets/gitlab-lfs-bucket.yaml
+- object-storage-buckets/gitlab-mr-diffs-bucket.yaml
+- object-storage-buckets/gitlab-packages-bucket.yaml
+- object-storage-buckets/gitlab-registry-bucket.yaml
+- object-storage-buckets/gitlab-terraform-state-bucket.yaml
+- object-storage-buckets/gitlab-uploads-bucket.yaml

@@ -1,0 +1,106 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitlab
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.gitlab.io/
+    targetRevision: 4.10.3
+    chart: gitlab
+    helm:
+     parameters:
+      - name : global.time_zone
+        value : Europe/Amsterdam
+      - name : global.hosts.https
+        value : "true"
+      - name : global.hosts.gitlab.name
+        value : gitlab.abs-cloud.nl
+      - name : global.hosts.gitlab.https
+        value : "true"
+      - name : global.hosts.registry.name
+        value : registry.abs-cloud.nl
+      - name : global.hosts.registry.https
+        value : "true"
+      - name : global.hosts.registry.bucket
+        value : gitlab-registry-storage
+      - name : global.minio.enabled
+        value : "false"
+      - name : global.ingress.configureCertmanager
+        value : "false"
+      - name : global.ingress.annotations.cert-manager.io/cluster-issuer
+        value : letsencrypt-prod
+      - name : global.appConfig.object_store.enabled
+        value : "false"
+      - name : global.appConfig.object_store.proxy_download
+        value : "true"
+      - name : global.appConfig.lfs.bucket
+        value : gitlab-lfs-storage
+      - name : global.appConfig.lfs.connection.secret
+        value : objectstore-lfs
+      - name : global.appConfig.lfs.connection.key
+        value : connection
+      - name : global.appConfig.artifacts.bucket
+        value : gitlab-artifacts-storage
+      - name : global.appConfig.artifacts.connection.secret
+        value : objectstore-artifacts
+      - name : global.appConfig.artifacts.connection.key
+        value : connection
+      - name : global.appConfig.uploads.bucket
+        value : gitlab-uploads-storage
+      - name : global.appConfig.uploads.connection.secret
+        value : objectstore-uploads
+      - name : global.appConfig.uploads.connection.key
+        value : connection
+      - name : global.appConfig.packages.bucket
+        value : gitlab-packages-storage
+      - name : global.appConfig.packages.connection.secret
+        value : objectstore-packages
+      - name : global.appConfig.packages.connection.key
+        value : connection
+      - name : global.appConfig.externalDiffs.bucket
+        value : gitlab-mr-diffs-storage
+      - name : global.appConfig.externalDiffs.connection.secret
+        value : objectstore-mr-diffs
+      - name : global.appConfig.externalDiffs.connection.key
+        value : connection
+      - name : global.appConfig.terraformState.bucket
+        value : gitlab-terraform-state-storage
+      - name : global.appConfig.terraformState.connection.secret
+        value : objectstore-terraform-state
+      - name : global.appConfig.terraformState.connection.key
+        value : connection
+      - name : global.appConfig.dependencyProxy.bucket
+        value : gitlab-dependency-proxy-storage
+      - name : global.appConfig.dependencyProxy.connection.secret
+        value : objectstore-dependency-proxy
+      - name : global.appConfig.dependencyProxy.connection.key
+        value : connection
+      - name : global.appConfig.backups.bucket
+        value : gitlab-backup-storage
+      - name : global.grafana.enabled
+        value : "true"
+      - name : gitlab-runner.runners.privileged
+        value : "true"
+      - name : certmanager.install
+        value : "false"
+      - name : gitlab.webservice.ingress.tls.secretName
+        value : gitlab-abs-cloud-nl
+      - name : gitlab.task-runner.backups.objectStorage.config.secret
+        value : objectstore-backup
+      - name : gitlab.task-runner.backups.objectStorage.config.key
+        value : config
+      - name : registry.ingress.tls.secretName
+        value : registry-abs-cloud-nl
+      - name : registry.storage.secret
+        value : registry-storage
+      - name : registry.storage.key
+        value : config
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitlab
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
