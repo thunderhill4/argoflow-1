@@ -31,6 +31,8 @@ spec:
         value : "false"
       - name : global.ingress.annotations.cert-manager.io/cluster-issuer
         value : letsencrypt-prod
+      - name: global.ingress.annotations."nginx.ingress.kubernetes.io/ssl-redirect"
+        value: "false"
       - name : global.appConfig.object_store.enabled
         value : "false"
       - name : global.appConfig.object_store.proxy_download
