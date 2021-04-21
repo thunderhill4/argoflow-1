@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gpu-feature-discovery
+  name: nvidia-gpu-feature-discovery
   namespace: argocd
 spec:
   project: default
