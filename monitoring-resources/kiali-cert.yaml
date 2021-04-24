@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: istio-ingressgateway-certs
+  name: kiali-abs-cloud-nl
   namespace: istio-system
 spec:
-  secretName: istio-ingressgateway-certs
+  secretName: kiali-abs-cloud-nl
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: kubeflow.abs-cloud.nl
+  commonName: kiali.abs-cloud.nl
   dnsNames:
-    - kubeflow.abs-cloud.nl
+    - kiali.abs-cloud.nl
