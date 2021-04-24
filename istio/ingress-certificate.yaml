@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: istio-ingressgateway-certs
   issuerRef:
-    name: letsencrypt-prod
+    name: letsencrypt-staging
     kind: ClusterIssuer
   commonName: kubeflow.abs-cloud.nl
   dnsNames:
