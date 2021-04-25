@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jaeger-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://jaegertracing.github.io/helm-charts
+    targetRevision: 2.21.0
+    chart: jaeger-operator
+    helm:
+     parameters:
+      - name : image.repository
+        value : jaegertracing/jaeger-operator
+      - name: image.tag
+        value: 1.22.0
+      - name: jaeger.create
+        value: "true"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
