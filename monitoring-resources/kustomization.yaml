@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - grafana-cert.yaml
+- grafana-virtual-service.yaml
 - kiali-cert.yaml
 - nvidia-dcgm-service-monitor.yaml
 - nvidia-dcgm-exporter-dashboard.yaml
