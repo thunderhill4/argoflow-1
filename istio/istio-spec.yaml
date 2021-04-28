@@ -14,4 +14,4 @@ spec:
     defaultConfig:
       tracing:
         zipkin:
-          address: http://jaeger-operator-jaeger-collector.observability:9411
+          address: http://jaeger-operator-jaeger-collector.monitoring:9411

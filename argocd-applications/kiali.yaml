@@ -40,9 +40,9 @@ spec:
       - name: cr.spec.external_services.prometheus.url
         value: http://kube-prometheus-stack-prometheus.monitoring:9090
       - name: cr.spec.external_services.tracing.in_cluster_url
-        value: http://jaeger-operator-jaeger-collector.observability:9411
+        value: http://jaeger-operator-jaeger-collector.monitoring:9411
       - name: cr.spec.external_services.tracing.url
-        value: http://jaeger-operator-jaeger-collector.observability:9411
+        value: http://jaeger-operator-jaeger-collector.monitoring:9411
       - name: cr.spec.external_services.grafana.url
         value: http://kube-prometheus-stack-grafana.monitoring:80
       - name: cr.spec.external_services.grafana.in_cluster_url

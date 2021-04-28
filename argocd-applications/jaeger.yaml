@@ -17,12 +17,12 @@ spec:
         value: 1.22.0
       - name: jaeger.create
         value: "true"
+      - name: jaeger.namespace
+        value: monitoring
   destination:
     server: https://kubernetes.default.svc
-    namespace: observability
+    namespace: monitoring
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
