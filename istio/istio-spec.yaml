@@ -10,8 +10,8 @@ spec:
   meshConfig:
     accessLogFile: /dev/stdout
     enablePrometheusMerge: true
-    enableTracing: true
-    defaultConfig:
-      tracing:
-        zipkin:
-          address: http://jaeger-operator-jaeger-collector.monitoring:9411
+    # enableTracing: true
+    # defaultConfig:
+    #   tracing:
+    #     zipkin:
+    #       address: http://jaeger-operator-jaeger-collector.monitoring:9411
