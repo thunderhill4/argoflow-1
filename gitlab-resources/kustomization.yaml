@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - gitlab-admin-service-account.yaml
+- gitlab-tcp-configmap.yaml
 - gitlab-cert.yaml
 - registry-cert.yaml
 - object-storage-buckets/gitlab-artifact-bucket.yaml
