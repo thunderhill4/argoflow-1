@@ -6,8 +6,8 @@ provider: AWS
 # Specify the region
 region: us-east-1
 # Specify access/secret keys
-aws_access_key_id: YEZCU2JI2RUQ64EAK7GQ
-aws_secret_access_key: LxnpAUcCywFE5TXJg18KviJkOFzxBB2RXGaAwdQV
+aws_access_key_id: 3NECW91TDFGH9MRRHCE6
+aws_secret_access_key: 2ZdHOfOpryIkvbdZCMRBZMDeeHbTJXa8JXjz8vyG
 # The below settings are for S3 compatible endpoints
 #   See https://docs.gitlab.com/ee/administration/job_artifacts.html#s3-compatible-connection-settings
 aws_signature_version: 4

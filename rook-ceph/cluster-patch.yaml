@@ -17,3 +17,5 @@ spec:
   storage:
     useAllDevices: false
     deviceFilter: ^sd[b-c]
+    config:
+      osdsPerDevice: "3"
