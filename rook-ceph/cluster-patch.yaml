@@ -15,4 +15,5 @@ spec:
         cpu: "2"
         memory: "4Gi"
   storage:
-    useAllDevices: true
+    useAllDevices: false
+    deviceFilter: ^sd[b-c]
