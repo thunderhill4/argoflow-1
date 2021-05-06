@@ -19,3 +19,4 @@ spec:
     deviceFilter: ^sd[b-c]
     config:
       osdsPerDevice: "3"
+      encryptedDevice: "true"
