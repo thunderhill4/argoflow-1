@@ -85,12 +85,16 @@ spec:
         value : "false"
       - name: global.ingress.configureCertmanager
         value: "false"
+      - name : gitlab.webservice.ingress.annotations.external-dns\.alpha\.kubernetes\.io/hostname
+        value : gitlab.abs-cloud.nl
       - name : gitlab.webservice.ingress.tls.secretName
         value : gitlab-abs-cloud-nl
       - name : gitlab.task-runner.backups.objectStorage.config.secret
         value : objectstore-backup
       - name : gitlab.task-runner.backups.objectStorage.config.key
         value : config
+      - name : registry.ingress.annotations.external-dns\.alpha\.kubernetes\.io/hostname
+        value : registry.abs-cloud.nl
       - name : registry.ingress.tls.secretName
         value : registry-abs-cloud-nl
       - name : registry.storage.secret

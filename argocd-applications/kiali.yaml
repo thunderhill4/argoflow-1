@@ -25,6 +25,8 @@ spec:
         value: "ibm.*"
       - name: cr.spec.api.namespaces.exclude[4]
         value: "kiali-operator"
+      - name: cr.spec.deployment.override_ingress_yaml.metadata.annotations.external-dns\.alpha\.kubernetes\.io/hostname
+        value: kiali.abs-cloud.nl
       - name: cr.spec.deployment.override_ingress_yaml.spec.tls[0].hosts[0]
         value: kiali.abs-cloud.nl
       - name: cr.spec.deployment.override_ingress_yaml.spec.tls[0].secretName

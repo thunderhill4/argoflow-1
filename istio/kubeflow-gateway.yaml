@@ -8,7 +8,7 @@ spec:
     istio: ingressgateway
   servers:
   - hosts:
-    - '*'
+    - kubeflow.abs-cloud.nl
     port:
       name: http
       number: 80
@@ -17,7 +17,7 @@ spec:
     tls:
       httpsRedirect: true
   - hosts:
-    - '*'
+    - kubeflow.abs-cloud.nl
     port:
       name: https
       number: 443

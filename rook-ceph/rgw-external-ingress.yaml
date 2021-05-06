@@ -4,6 +4,7 @@ metadata:
   name: rook-ceph-rgw-my-store-external
   namespace: rook-ceph
   annotations:
+    external-dns.alpha.kubernetes.io/hostname: rgw.abs-cloud.nl
     kubernetes.io/ingress.class: "nginx"
     kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
