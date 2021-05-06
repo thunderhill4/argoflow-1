@@ -7,3 +7,4 @@ resources:
 - kiali-cert.yaml
 - nvidia-dcgm-service-monitor.yaml
 - nvidia-dcgm-exporter-dashboard.yaml
+- pod-metrics-dashboard.yaml
