@@ -64,6 +64,9 @@
   "kustomize": {
     "enabled": true,
   },
+  "argocd": {
+      "fileMatch": ["argocd-applications/.+\\.yaml$"]
+  },
   "regexManagers": [
     {
       "fileMatch": ["(^|/)kustomization.yaml$"],
