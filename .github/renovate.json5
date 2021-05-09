@@ -105,6 +105,14 @@
           "(tag:|value:) (?<currentValue>.*) # (?<depName>.*)"
         ],
       "datasourceTemplate": "docker"
+    },
+    // Update Jupyter Spawner Images
+    {
+      "fileMatch": ["(^|/)spawner_ui_config.yaml$"],
+      "matchStrings": [
+          "(value:|-) (?<depName>kubeflownotebooks\/.*):(?<currentValue>.*)$"
+        ],
+      "datasourceTemplate": "docker"
     }
   ]
 }
