@@ -1717,7 +1717,7 @@ data:
               }
             ],
             "query": {
-              "query": "label_values(DCGM_FI_DEV_MEM_COPY_UTIL{exported_pod=\"$pod\"}, gpu)",
+              "query": "label_values(DCGM_FI_DEV_GPU_TEMP{exported_pod=\"$pod\"}, gpu)",
               "refId": "StandardVariableQuery"
             },
             "refresh": 0,
