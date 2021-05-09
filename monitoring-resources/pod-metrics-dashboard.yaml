@@ -23,12 +23,12 @@ data:
           }
         ]
       },
-      "description": "Dashboard to visualize data from the NVIDIA Data Center GPU Manager (DCGM)",
+      "description": "Dashboard to Notebook Metrics",
       "editable": true,
       "gnetId": 11752,
       "graphTooltip": 0,
-      "id": 48,
-      "iteration": 1620303151871,
+      "id": 93,
+      "iteration": 1620575945378,
       "links": [],
       "panels": [
         {
@@ -108,7 +108,7 @@ data:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "targets": [
             {
               "exemplar": true,
@@ -188,7 +188,7 @@ data:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "targets": [
             {
               "exemplar": true,
@@ -271,7 +271,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -409,7 +409,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -545,7 +545,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -655,7 +655,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -845,7 +845,7 @@ data:
           },
           "gridPos": {
             "h": 6,
-            "w": 12,
+            "w": 24,
             "x": 0,
             "y": 29
           },
@@ -876,6 +876,13 @@ data:
           "pluginVersion": "7.5.3",
           "repeat": "pvcs",
           "repeatDirection": "h",
+          "scopedVars": {
+            "pvcs": {
+              "selected": false,
+              "text": "workspace-gpu",
+              "value": "workspace-gpu"
+            }
+          },
           "targets": [
             {
               "exemplar": true,
@@ -916,7 +923,7 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 35
+            "y": 47
           },
           "id": 71,
           "panels": [],
@@ -958,7 +965,7 @@ data:
             "h": 5,
             "w": 8,
             "x": 0,
-            "y": 36
+            "y": 48
           },
           "id": 57,
           "links": [],
@@ -974,7 +981,7 @@ data:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "repeat": null,
           "repeatDirection": "v",
           "targets": [
@@ -1029,7 +1036,7 @@ data:
             "h": 5,
             "w": 8,
             "x": 8,
-            "y": 36
+            "y": 48
           },
           "id": 39,
           "links": [],
@@ -1045,7 +1052,7 @@ data:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "repeat": null,
           "repeatDirection": "v",
           "targets": [
@@ -1110,7 +1117,7 @@ data:
             "h": 5,
             "w": 8,
             "x": 16,
-            "y": 36
+            "y": 48
           },
           "id": 31,
           "interval": null,
@@ -1129,7 +1136,7 @@ data:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "repeat": null,
           "repeatDirection": "v",
           "targets": [
@@ -1166,7 +1173,7 @@ data:
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 41
+            "y": 53
           },
           "hiddenSeries": false,
           "id": 42,
@@ -1187,7 +1194,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1282,7 +1289,7 @@ data:
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 48
+            "y": 60
           },
           "hiddenSeries": false,
           "id": 44,
@@ -1305,7 +1312,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1388,7 +1395,7 @@ data:
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 55
+            "y": 67
           },
           "hiddenSeries": false,
           "id": 45,
@@ -1411,7 +1418,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1494,7 +1501,7 @@ data:
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 62
+            "y": 74
           },
           "hiddenSeries": false,
           "id": 24,
@@ -1517,7 +1524,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.3",
+          "pluginVersion": "7.5.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1590,32 +1597,14 @@ data:
           {
             "allValue": null,
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "gpu-0",
               "value": "gpu-0"
             },
             "datasource": null,
             "definition": "label_values(pod)",
             "description": null,
-            "error": {
-              "config": {
-                "headers": {
-                  "X-Grafana-Org-Id": 1
-                },
-                "hideFromInspector": true,
-                "method": "GET",
-                "retry": 0,
-                "url": "api/datasources/proxy/1/api/v1/label/pod/values?start=1620301352&end=1620303152"
-              },
-              "data": {
-                "error": "",
-                "message": "",
-                "response": ""
-              },
-              "message": "Query error: 502 ",
-              "status": 502,
-              "statusText": ""
-            },
+            "error": null,
             "hide": 0,
             "includeAll": false,
             "label": null,
@@ -1650,25 +1639,7 @@ data:
             "datasource": null,
             "definition": "label_values(kube_pod_spec_volumes_persistentvolumeclaims_info{pod=\"$pod\"}, persistentvolumeclaim)",
             "description": "kube_pod_spec_volumes_persistentvolumeclaims_info{pod=\"$pod\"}",
-            "error": {
-              "config": {
-                "headers": {
-                  "X-Grafana-Org-Id": 1
-                },
-                "hideFromInspector": true,
-                "method": "GET",
-                "retry": 0,
-                "url": "api/datasources/proxy/1/api/v1/series?match%5B%5D=kube_pod_spec_volumes_persistentvolumeclaims_info%7Bpod%3D%22gpu-0%22%7D&start=1620301352&end=1620303152"
-              },
-              "data": {
-                "error": "",
-                "message": "",
-                "response": ""
-              },
-              "message": "Query error: 502 ",
-              "status": 502,
-              "statusText": ""
-            },
+            "error": null,
             "hide": 0,
             "includeAll": true,
             "label": null,
@@ -1701,7 +1672,7 @@ data:
               ]
             },
             "datasource": null,
-            "definition": "label_values(DCGM_FI_DEV_MEM_COPY_UTIL{exported_pod=\"$pod\"}, gpu)",
+            "definition": "label_values(DCGM_FI_DEV_GPU_TEMP{exported_pod=\"$pod\"}, gpu)",
             "description": null,
             "error": null,
             "hide": 0,
@@ -1714,6 +1685,11 @@ data:
                 "selected": true,
                 "text": "All",
                 "value": "$__all"
+              },
+              {
+                "selected": false,
+                "text": "0",
+                "value": "0"
               }
             ],
             "query": {
@@ -1764,5 +1740,5 @@ data:
       "timezone": "browser",
       "title": "Pod Metrics",
       "uid": "hpcsyl6zhqk",
-      "version": 27
+      "version": 1
     }
