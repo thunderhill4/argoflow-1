@@ -109,7 +109,7 @@
     {
       "fileMatch": ["(^|/)spawner_ui_config.yaml$"],
       "matchStrings": [
-          "^\ *(value:|-) (?<depName>kubeflownotebooks\/.*):(?<currentValue>.*)$"
+          "(value:|-) (?<depName>kubeflownotebooks\/[^\/]*?)\:(?<currentValue>.*)"
         ],
       "datasourceTemplate": "docker"
     }
