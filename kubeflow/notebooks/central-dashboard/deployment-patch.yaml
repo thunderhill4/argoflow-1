@@ -11,3 +11,10 @@ spec:
         env:
         - name: REGISTRATION_FLOW
           value: "true"
+        volumeMounts:
+        - mountPath: /app/public/assets/icons
+          name: icons-volume
+      volumes:
+      - configMap:
+          name: central-dashboard-icons
+        name: icons-volume
