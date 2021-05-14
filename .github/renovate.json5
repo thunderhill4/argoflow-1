@@ -37,6 +37,13 @@
       "groupName": "rook-ceph",
       "additionalBranchPrefix": ""
     },
+    {
+      "description": "Notebook Updates",
+      "matchPackagePatterns": ["^kubeflownotebooks\/.*"],
+      "groupName": "notebooks",
+      "automerge": true,
+      "additionalBranchPrefix": ""
+    },
     //{
     //  "matchDatasources": [
     //    "docker"
