@@ -59,6 +59,7 @@ spec:
   - hosts:
     - "serving.abs-cloud.nl"
     - "*.serving.abs-cloud.nl"
+    - "*.*.serving.abs-cloud.nl"
     port:
       name: http
       number: 80
@@ -69,6 +70,7 @@ spec:
   - hosts:
     - "serving.abs-cloud.nl"
     - "*.serving.abs-cloud.nl"
+    - "*.*.serving.abs-cloud.nl"
     port:
       name: https
       number: 443
