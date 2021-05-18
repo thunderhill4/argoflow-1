@@ -12,4 +12,3 @@ spec:
   dnsNames:
     - "serving.abs-cloud.nl"
     - "*.serving.abs-cloud.nl"
-    - "*.*.serving.abs-cloud.nl"
