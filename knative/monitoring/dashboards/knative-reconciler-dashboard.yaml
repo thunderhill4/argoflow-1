@@ -270,7 +270,7 @@ data:
           "steppedLine": true,
           "targets": [
             {
-              "expr": "histogram_quantile(0.99, sum(rate(knative_dev_net_istio_istiocontroller_reconcile_latency_bucket{reconciler=\"$reconciler\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.99, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\"}[1m])) by (le))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -279,14 +279,14 @@ data:
               "refId": "A"
             },
             {
-              "expr": "histogram_quantile(0.90, sum(rate(knative_dev_net_istio_istiocontroller_reconcile_latency_bucket{reconciler=\"$reconciler\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.90, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "90th",
               "refId": "B"
             },
             {
-              "expr": "histogram_quantile(0.50, sum(rate(knative_dev_net_istio_istiocontroller_reconcile_latency_bucket{reconciler=\"$reconciler\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.50, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "50th",
@@ -469,7 +469,7 @@ data:
           "steppedLine": true,
           "targets": [
             {
-              "expr": "histogram_quantile(0.99, sum(rate(knative_dev_net_istio_istiocontroller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.99, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -478,14 +478,14 @@ data:
               "refId": "A"
             },
             {
-              "expr": "histogram_quantile(0.90, sum(rate(knative_dev_net_istio_istiocontroller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.90, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "90th",
               "refId": "B"
             },
             {
-              "expr": "histogram_quantile(0.50, sum(rate(knative_dev_net_istio_istiocontroller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.50, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "50th",
