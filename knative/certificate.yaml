@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: serving-abs-cloud-nl
+  namespace: istio-system
+spec:
+  secretName: serving-abs-cloud-nl
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: serving.abs-cloud.nl
+  dnsNames:
+    - "serving.abs-cloud.nl"
+    - "*.serving.abs-cloud.nl"
