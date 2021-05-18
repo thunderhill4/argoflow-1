@@ -42,6 +42,7 @@
       "matchPackagePatterns": ["^kubeflownotebooks\/.*"],
       "groupName": "notebooks",
       "automerge": true,
+      "requiredStatusChecks": null,
       "additionalBranchPrefix": ""
     },
     //{
