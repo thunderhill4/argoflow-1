@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kfserving-config
+  namespace: kubeflow
+  labels:
+    app: kfserving
+    app.kubernetes.io/name: kfserving
+data:
+  ingressGateway: knative-ingress-gateway.knative-serving
