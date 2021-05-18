@@ -18,6 +18,7 @@ metadata:
   name: knative-serving
   labels:
     serving.knative.dev/release: "v0.22.0"
+    istio-injection: enabled
 
 ---
 # Copyright 2019 The Knative Authors
