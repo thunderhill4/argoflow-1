@@ -339,7 +339,7 @@ data:
           },
           "id": 9,
           "panels": [],
-          "title": "Per Reconciler & Key",
+          "title": "Per Reconciler & Success",
           "type": "row"
         },
         {
@@ -383,7 +383,7 @@ data:
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum(60 * rate(knative_dev_internal_serving_controller_reconcile_count{reconciler=\"$reconciler\", key=\"$key\"}[1m]))",
+              "expr": "sum(60 * rate(knative_dev_internal_serving_controller_reconcile_count{reconciler=\"$reconciler\", success=\"$success\"}[1m]))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -395,7 +395,7 @@ data:
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "$reconciler/$key Reconcile Count (per min)",
+          "title": "$reconciler/$success Reconcile Count (per min)",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -469,7 +469,7 @@ data:
           "steppedLine": true,
           "targets": [
             {
-              "expr": "histogram_quantile(0.99, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.99, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", success=\"$success\"}[1m])) by (le))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -478,14 +478,14 @@ data:
               "refId": "A"
             },
             {
-              "expr": "histogram_quantile(0.90, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.90, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", success=\"$success\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "90th",
               "refId": "B"
             },
             {
-              "expr": "histogram_quantile(0.50, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", key=\"$key\"}[1m])) by (le))",
+              "expr": "histogram_quantile(0.50, sum(rate(knative_dev_internal_serving_controller_reconcile_latency_bucket{reconciler=\"$reconciler\", success=\"$success\"}[1m])) by (le))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "50th",
@@ -495,7 +495,7 @@ data:
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "$reconciler/$key Reconcile Latency Percentiles",
+          "title": "$reconciler/$success Reconcile Latency Percentiles",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -561,11 +561,11 @@ data:
             "datasource": "Prometheus",
             "hide": 0,
             "includeAll": false,
-            "label": "Key",
+            "label": "Success",
             "multi": false,
-            "name": "key",
+            "name": "success",
             "options": [],
-            "query": "label_values(knative_dev_internal_serving_controller_reconcile_count{reconciler=\"$reconciler\"}, key)",
+            "query": "label_values(knative_dev_internal_serving_controller_reconcile_count{reconciler=\"$reconciler\"}, success)",
             "refresh": 1,
             "regex": "",
             "sort": 1,
