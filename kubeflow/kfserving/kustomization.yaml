@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
 - github.com/kubeflow/kfserving/config/overlays/kubeflow?ref=671c1ecc47d5bf6b12d424711fe77a1d7269bcb2 # tag=v0.6.0-rc0
 
-patchesStrategicMerge:
-- kfserving-config-patch.yaml
+# patchesStrategicMerge:
+# - kfserving-config-patch.yaml
 
 images:
 - name: gcr.io/kfserving/kfserving-controller
