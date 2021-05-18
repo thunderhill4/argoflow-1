@@ -85,7 +85,7 @@ data:
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum by (reconciler)(60 * rate(knative_dev_net_istio_istiocontroller_reconcile_count[1m]))",
+              "expr": "sum by (reconciler)(60 * rate(knative_dev_internal_serving_controller_reconcile_count[1m]))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -184,7 +184,7 @@ data:
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum(60 * rate(knative_dev_net_istio_istiocontroller_reconcile_count{reconciler=\"$reconciler\"}[1m]))",
+              "expr": "sum(60 * rate(knative_dev_internal_serving_controller_reconcile_count{reconciler=\"$reconciler\"}[1m]))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -383,7 +383,7 @@ data:
           "steppedLine": true,
           "targets": [
             {
-              "expr": "sum(60 * rate(knative_dev_net_istio_istiocontroller_reconcile_count{reconciler=\"$reconciler\", key=\"$key\"}[1m]))",
+              "expr": "sum(60 * rate(knative_dev_internal_serving_controller_reconcile_count{reconciler=\"$reconciler\", key=\"$key\"}[1m]))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -545,7 +545,7 @@ data:
             "multi": false,
             "name": "reconciler",
             "options": [],
-            "query": "label_values(knative_dev_net_istio_istiocontroller_reconcile_count, reconciler)",
+            "query": "label_values(knative_dev_internal_serving_controller_reconcile_count, reconciler)",
             "refresh": 1,
             "regex": "",
             "sort": 0,
@@ -565,7 +565,7 @@ data:
             "multi": false,
             "name": "key",
             "options": [],
-            "query": "label_values(knative_dev_net_istio_istiocontroller_reconcile_count{reconciler=\"$reconciler\"}, key)",
+            "query": "label_values(knative_dev_internal_serving_controller_reconcile_count{reconciler=\"$reconciler\"}, key)",
             "refresh": 1,
             "regex": "",
             "sort": 1,

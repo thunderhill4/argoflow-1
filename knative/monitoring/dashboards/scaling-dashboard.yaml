@@ -109,7 +109,7 @@ data:
                 "steppedLine": true,
                 "targets": [
                    {
-                   "expr": "sum(autoscaler_actual_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
+                   "expr": "sum(knative_dev_serving_autoscaler_actual_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
                    "format": "time_series",
                    "interval": "1s",
                    "intervalFactor": 1,
@@ -117,7 +117,7 @@ data:
                    "refId": "A"
                    },
                    {
-                   "expr": "sum(autoscaler_requested_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
+                   "expr": "sum(knative_dev_serving_autoscaler_requested_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
                    "format": "time_series",
                    "interval": "1s",
                    "intervalFactor": 1,
@@ -125,7 +125,7 @@ data:
                    "refId": "C"
                    },
                    {
-                   "expr": "sum(autoscaler_pending_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
+                   "expr": "sum(knative_dev_serving_autoscaler_pending_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
                    "format": "time_series",
                    "interval": "1s",
                    "intervalFactor": 1,
@@ -133,7 +133,7 @@ data:
                    "refId": "P"
                    },
                    {
-                   "expr": "sum(autoscaler_not_ready_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
+                   "expr": "sum(knative_dev_serving_autoscaler_not_ready_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
                    "format": "time_series",
                    "interval": "1s",
                    "intervalFactor": 1,
@@ -141,7 +141,7 @@ data:
                    "refId": "N"
                    },
                    {
-                   "expr": "sum(autoscaler_terminating_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
+                   "expr": "sum(knative_dev_serving_autoscaler_terminating_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"})",
                    "format": "time_series",
                    "interval": "1s",
                    "intervalFactor": 1,
@@ -526,7 +526,7 @@ data:
              "steppedLine": true,
              "targets": [
              {
-                "expr": "sum(autoscaler_desired_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"}) ",
+                "expr": "sum(knative_dev_serving_autoscaler_desired_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\", revision_name=\"$revision\"}) ",
                 "format": "time_series",
                 "intervalFactor": 1,
                 "legendFormat": "Desired Pods",
@@ -1290,7 +1290,7 @@ data:
              "multi": false,
              "name": "namespace",
              "options": [],
-             "query": "label_values(autoscaler_desired_pods, namespace_name)",
+             "query": "label_values(knative_dev_serving_autoscaler_desired_pods, namespace_name)",
              "refresh": 1,
              "regex": "",
              "sort": 1,
@@ -1310,7 +1310,7 @@ data:
              "multi": false,
              "name": "configuration",
              "options": [],
-             "query": "label_values(autoscaler_desired_pods{namespace_name=\"$namespace\"}, configuration_name)",
+             "query": "label_values(knative_dev_serving_autoscaler_desired_pods{namespace_name=\"$namespace\"}, configuration_name)",
              "refresh": 1,
              "regex": "",
              "sort": 1,
@@ -1330,7 +1330,7 @@ data:
              "multi": false,
              "name": "revision",
              "options": [],
-             "query": "label_values(autoscaler_desired_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\"}, revision_name)",
+             "query": "label_values(knative_dev_serving_autoscaler_desired_pods{namespace_name=\"$namespace\", configuration_name=\"$configuration\"}, revision_name)",
              "refresh": 1,
              "regex": "",
              "sort": 2,
