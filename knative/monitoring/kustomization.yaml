@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - knative-opentelemetry-service-monitor.yaml
+- knative-instances-service-monitor.yaml
 - collector.yaml
 - dashboards/knative-control-plane-efficiency-dashboard.yaml
 - dashboards/knative-reconciler-dashboard.yaml
