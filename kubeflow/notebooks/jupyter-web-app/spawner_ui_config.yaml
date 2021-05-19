@@ -23,23 +23,23 @@ data:
     spawnerFormDefaults:
       image:
         # The container Image for the user's Jupyter Notebook
-        value: kubeflownotebooks/jupyter-scipy:v0.1.98
+        value: kubeflownotebooks/jupyter-scipy:v0.1.99
         # The list of available standard container Images
         options:
-          - kubeflownotebooks/jupyter-scipy:v0.1.98
-          - kubeflownotebooks/jupyter-pytorch-full:v0.1.98
-          - kubeflownotebooks/jupyter-pytorch-full-cuda:v0.1.98
-          - kubeflownotebooks/jupyter-tensorflow-full:v0.1.98
-          - kubeflownotebooks/jupyter-tensorflow-full-cuda:v0.1.98
+          - kubeflownotebooks/jupyter-scipy:v0.1.99
+          - kubeflownotebooks/jupyter-pytorch-full:v0.1.99
+          - kubeflownotebooks/jupyter-pytorch-full-cuda:v0.1.99
+          - kubeflownotebooks/jupyter-tensorflow-full:v0.1.99
+          - kubeflownotebooks/jupyter-tensorflow-full-cuda:v0.1.99
       imageGroupOne:
         # The container Image for the user's Group One Server
         # The annotation `notebooks.kubeflow.org/http-rewrite-uri: /`
         # is applied to notebook in this group, configuring
         # the Istio rewrite for containers that host their web UI at `/`
-        value: kubeflownotebooks/codeserver-python:v0.1.98
+        value: kubeflownotebooks/codeserver-python:v0.1.99
         # The list of available standard container Images
         options:
-          - kubeflownotebooks/codeserver-python:v0.1.98
+          - kubeflownotebooks/codeserver-python:v0.1.99
       imageGroupTwo:
         # The container Image for the user's Group Two Server
         # The annotation `notebooks.kubeflow.org/http-rewrite-uri: /`
