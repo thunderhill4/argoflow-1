@@ -36,10 +36,10 @@ data:
         # The annotation `notebooks.kubeflow.org/http-rewrite-uri: /`
         # is applied to notebook in this group, configuring
         # the Istio rewrite for containers that host their web UI at `/`
-        value: kubeflownotebooks/codeserver-python:v0.1.107
+        value: kubeflownotebooks/codeserver-python:v0.2.10
         # The list of available standard container Images
         options:
-          - kubeflownotebooks/codeserver-python:v0.1.107
+          - kubeflownotebooks/codeserver-python:v0.2.10
       imageGroupTwo:
         # The container Image for the user's Group Two Server
         # The annotation `notebooks.kubeflow.org/http-rewrite-uri: /`
