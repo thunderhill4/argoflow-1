@@ -1,23 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dex
+  name: dex-resources
   namespace: argocd
 spec:
   project: default
   source:
-    chart: dex
-    helm:
-      parameters:
-      - name: configSecret.create
-        value: "false"
-      - name: configSecret.name
-        value: dex-config
-    repoURL: https://charts.dexidp.io
-    targetRevision: 0.3.3
+    repoURL: https://github.com/DavidSpek/argoflow
+    targetRevision: HEAD
+    path: auth/overlays/dex/
+    kustomize:
+      version: v4.0.5
   destination:
-    namespace: auth
     server: https://kubernetes.default.svc
+    namespace: auth
   syncPolicy:
     automated:
       prune: true

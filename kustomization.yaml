@@ -5,6 +5,9 @@ resources:
 # non-kubeflow
 - argocd-applications/argocd.yaml
 - argocd-applications/sealed-secrets.yaml
+- argocd-applications/dex-resources.yaml
+- argocd-applications/dex.yaml
+- argocd-applications/oauth2-proxy.yaml
 - argocd-applications/cert-manager.yaml
 - argocd-applications/metallb.yaml
 - argocd-applications/external-dns.yaml
@@ -21,8 +24,6 @@ resources:
 ## kubeflow
 - argocd-applications/kubeflow-roles-namespaces.yaml
 #- argocd-applications/oidc-authservice.yaml
-- argocd-applications/dex.yaml
-- argocd-applications/oauth2-proxy.yaml
 - argocd-applications/knative.yaml
 - argocd-applications/pipelines.yaml
 - argocd-applications/kfserving.yaml

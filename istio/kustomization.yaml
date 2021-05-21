@@ -10,4 +10,5 @@ resources:
 - deny-all-authorizationpolicy.yaml
 - gateway-authorizationpolicy.yaml
 - kubeflow-cluster-roles.yaml
+- oauth2-signout-virtual-service.yaml
 - monitoring/

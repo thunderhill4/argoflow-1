@@ -4,9 +4,6 @@ metadata:
   name: oauth2-proxy
   namespace: argocd
 spec:
-  destination:
-    namespace: auth
-    server: https://kubernetes.default.svc
   project: default
   source:
     chart: oauth2-proxy
@@ -35,7 +32,7 @@ spec:
       - name: extraArgs.cookie-expire
         value: 4h
       - name: extraArgs.cookie-name
-        value: _oauth2_proxy_istio_ingressgateway
+        value: _oauth2_proxy
       - name: extraArgs.email-domain
         value: "*"
       - name: extraArgs.upstream
@@ -58,6 +55,9 @@ spec:
         value: "true"
     repoURL: https://oauth2-proxy.github.io/manifests
     targetRevision: 3.2.11
+  destination:
+    namespace: auth
+    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       prune: true
