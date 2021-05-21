@@ -4,5 +4,5 @@ metadata:
   name: $(profile-name)
 spec:
   owner:
-    kind: User
+    kind: Admin
     name: $(user)
