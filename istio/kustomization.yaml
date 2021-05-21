@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
 - istio-spec.yaml
 - namespace.yaml
-- ingress-certificate.yaml
+- kubeflow-certificate.yaml
 - kubeflow-gateway.yaml
 - deny_all_authorizationpolicy.yaml
 - gateway_authorizationpolicy.yaml

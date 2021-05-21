@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kubeflow-abs-cloud-nl
+  namespace: istio-system
+spec:
+  secretName: kubeflow-abs-cloud-nl
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: kubeflow.abs-cloud.nl
+  dnsNames:
+    - kubeflow.abs-cloud.nl
