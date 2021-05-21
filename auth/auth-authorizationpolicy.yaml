@@ -1,0 +1,59 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: istio-auth
+  namespace: istio-system
+spec:
+  action: ALLOW
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+      istio: ingressgateway
+  rules:
+  - to:
+    - operation:
+        hosts:
+        - "auth.abs-cloud.nl"
+        - "kubeflow.abs-cloud.nl" # needed for redirect after authentication
+        - "serving.abs-cloud.nl" # needed for redirect after authentication
+        - "*.serving.abs-cloud.nl" # needed for redirect after authentication
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: auth-allow-access
+  namespace: auth
+spec:
+  action: ALLOW
+  rules:
+  - {}
+  # selector:
+  #   matchLabels:
+  #     app: dex
+  # rules:
+  # - to:
+  #   - operation:
+  #       hosts:
+  #       - "dex.abs-cloud.nl"
+  #       - "dex.auth.svc.cluster.local"
+# ---
+# apiVersion: security.istio.io/v1beta1
+# kind: AuthorizationPolicy
+# metadata:
+#   name: allw-redirect-from-auth
+#   namespace: istio-system
+# spec:
+#   action: ALLOW
+#   selector:
+#     matchLabels:
+#       app: istio-ingressgateway
+#       istio: ingressgateway
+#   rules:
+#   - to:
+#     - operation:
+#         hosts:
+#         - "kubeflow.abs-cloud.nl"
+#     when:
+#     - key: request.headers[kubeflow-userid]
+#       values:
+#       - "kubeflow-user"
