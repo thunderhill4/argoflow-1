@@ -16,3 +16,12 @@ resources:
 - object-storage-buckets/gitlab-registry-bucket.yaml
 - object-storage-buckets/gitlab-terraform-state-bucket.yaml
 - object-storage-buckets/gitlab-uploads-bucket.yaml
+- gitlab-object-secrets/artifact-s3.yaml
+- gitlab-object-secrets/backup-s3.yaml
+- gitlab-object-secrets/dependency-proxy-s3.yaml
+- gitlab-object-secrets/lfs-s3.yaml
+- gitlab-object-secrets/mr-diffs-s3.yaml
+- gitlab-object-secrets/packages-s3.yaml
+- gitlab-object-secrets/registry-s3.yaml
+- gitlab-object-secrets/terraform-state-s3.yaml
+- gitlab-object-secrets/uploads-s3.yaml

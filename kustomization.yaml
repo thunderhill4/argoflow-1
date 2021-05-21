@@ -3,6 +3,8 @@ kind: Kustomization
 
 resources:
 # non-kubeflow
+- argocd-applications/argocd.yaml
+- argocd-applications/sealed-secrets.yaml
 - argocd-applications/cert-manager.yaml
 - argocd-applications/metallb.yaml
 - argocd-applications/external-dns.yaml
@@ -17,7 +19,6 @@ resources:
 - argocd-applications/kiali.yaml
 
 ## kubeflow
-- argocd-applications/argocd.yaml
 - argocd-applications/kubeflow-roles-namespaces.yaml
 - argocd-applications/oidc-authservice.yaml
 - argocd-applications/dex-istio.yaml
