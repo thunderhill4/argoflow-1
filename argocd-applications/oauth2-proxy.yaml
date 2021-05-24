@@ -20,7 +20,7 @@ spec:
       - name: service.port
         value: "4180"
       - name: extraArgs.provider
-        value: oidc
+        value: keycloak
       - name: extraArgs.set-xauthrequest
         value: "true"
       - name: extraArgs.cookie-secure
@@ -43,16 +43,26 @@ spec:
         value: ".abs-cloud.nl"
       - name: extraArgs.whitelist-domain
         value: ".abs-cloud.nl"
-      - name: extraArgs.oidc-issuer-url
-        value: "https://auth.abs-cloud.nl"
+      # - name: extraArgs.oidc-issuer-url
+      #   value: "https://auth.abs-cloud.nl"
       - name: extraArgs.login-url
-        value: "https://auth.abs-cloud.nl/auth"
-      - name: extraArgs.oidc-jwks-url
-        value: "https://auth.abs-cloud.nl/keys"
+        value: "https://auth.abs-cloud.nl/auth/realms/kubeflow/protocol/openid-connect/auth"
+      # - name: extraArgs.oidc-jwks-url
+      #   value: "https://auth.abs-cloud.nl/keys"
       - name: extraArgs.redeem-url
-        value: "https://auth.abs-cloud.nl/token"
-      - name: extraArgs.skip-oidc-discovery
-        value: "true"
+        value: "https://auth.abs-cloud.nl/auth/realms/kubeflow/protocol/openid-connect/token"
+      - name: extraArgs.profile-url
+        value: "https://auth.abs-cloud.nl/auth/realms/kubeflow/protocol/openid-connect/userinfo"
+      - name: extraArgs.validate-url
+        value: "https://auth.abs-cloud.nl/auth/realms/kubeflow/protocol/openid-connect/userinfo"
+      - name: extraArgs.scope
+        value: email
+      - name: extraArgs.scope
+        value: profile
+      - name: extraArgs.scope
+        value: openid
+      # - name: extraArgs.skip-oidc-discovery
+      #   value: "true"
     repoURL: https://oauth2-proxy.github.io/manifests
     targetRevision: 3.2.11
   destination:
