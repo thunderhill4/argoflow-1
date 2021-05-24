@@ -19,6 +19,8 @@ spec:
         value: "true"
       - name: auth.existingSecret
         value: keycloak-secret
+      - name: postgresql.existingSecret
+        value: keycloak-postgresql
       - name: extraVolumeMounts[0].name
         value: config
       - name: extraVolumeMounts[0].mountPath
