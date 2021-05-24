@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: auth
 
 resources:
-# - ../../base
+- ../../base
 - keycloak-secret.yaml
 - kubeflow-realm-secret.yaml
 - oauth2-proxy-secret.yaml
