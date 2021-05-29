@@ -48,10 +48,10 @@ data:
         # The annotation `notebooks.kubeflow.org/http-headers-request-set`
         # is applied to notebook in this group, configuring Istio
         # to add the `X-RStudio-Root-Path` header to requests
-        value: kubeflownotebooks/rstudio-tidyverse:v0.2.22
+        value: kubeflownotebooks/rstudio-tidyverse:v0.2.37
         # The list of available standard container Images
         options:
-          - kubeflownotebooks/rstudio-tidyverse:v0.2.22
+          - kubeflownotebooks/rstudio-tidyverse:v0.2.37
       allowCustomImage: true
       # If true, users can input custom images
       # If false, users can only select from the images in this config
