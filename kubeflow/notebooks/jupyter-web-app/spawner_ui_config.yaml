@@ -29,8 +29,8 @@ data:
           - kubeflownotebooks/jupyter-scipy:v0.2.34
           - kubeflownotebooks/jupyter-pytorch-full:v0.2.35
           - kubeflownotebooks/jupyter-pytorch-full-cuda:v0.2.35
-          - kubeflownotebooks/jupyter-tensorflow-full:v0.2.29
-          - kubeflownotebooks/jupyter-tensorflow-full-cuda:v0.2.29
+          - kubeflownotebooks/jupyter-tensorflow-full:v0.2.36
+          - kubeflownotebooks/jupyter-tensorflow-full-cuda:v0.2.36
       imageGroupOne:
         # The container Image for the user's Group One Server
         # The annotation `notebooks.kubeflow.org/http-rewrite-uri: /`
