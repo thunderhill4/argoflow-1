@@ -23,12 +23,12 @@ data:
     spawnerFormDefaults:
       image:
         # The container Image for the user's Jupyter Notebook
-        value: kubeflownotebooks/jupyter-scipy:v0.2.39
+        value: kubeflownotebooks/jupyter-scipy:v0.2.43
         # The list of available standard container Images
         options:
-          - kubeflownotebooks/jupyter-scipy:v0.2.39
-          - kubeflownotebooks/jupyter-pytorch-full:v0.2.35
-          - kubeflownotebooks/jupyter-pytorch-full-cuda:v0.2.35
+          - kubeflownotebooks/jupyter-scipy:v0.2.43
+          - kubeflownotebooks/jupyter-pytorch-full:v0.2.44
+          - kubeflownotebooks/jupyter-pytorch-full-cuda:v0.2.44
           - kubeflownotebooks/jupyter-tensorflow-full:v0.2.36
           - kubeflownotebooks/jupyter-tensorflow-full-cuda:v0.2.36
       imageGroupOne:
@@ -48,10 +48,10 @@ data:
         # The annotation `notebooks.kubeflow.org/http-headers-request-set`
         # is applied to notebook in this group, configuring Istio
         # to add the `X-RStudio-Root-Path` header to requests
-        value: kubeflownotebooks/rstudio-tidyverse:v0.2.41
+        value: kubeflownotebooks/rstudio-tidyverse:v0.2.42
         # The list of available standard container Images
         options:
-          - kubeflownotebooks/rstudio-tidyverse:v0.2.41
+          - kubeflownotebooks/rstudio-tidyverse:v0.2.42
       allowCustomImage: true
       # If true, users can input custom images
       # If false, users can only select from the images in this config
