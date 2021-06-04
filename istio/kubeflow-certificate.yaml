@@ -11,3 +11,5 @@ spec:
   commonName: kubeflow.abs-cloud.nl
   dnsNames:
     - kubeflow.abs-cloud.nl
+    - serving.abs-cloud.nl
+    - "*.serving.abs-cloud.nl"
