@@ -23,14 +23,14 @@ data:
     spawnerFormDefaults:
       image:
         # The container Image for the user's Jupyter Notebook
-        value: kubeflownotebooks/jupyter-scipy:v0.2.49
+        value: kubeflownotebooks/jupyter-scipy:v0.2.50
         # The list of available standard container Images
         options:
-          - kubeflownotebooks/jupyter-scipy:v0.2.49
-          - kubeflownotebooks/jupyter-pytorch-full:v0.2.46
-          - kubeflownotebooks/jupyter-pytorch-full-cuda:v0.2.46
-          - kubeflownotebooks/jupyter-tensorflow-full:v0.2.46
-          - kubeflownotebooks/jupyter-tensorflow-full-cuda:v0.2.46
+          - kubeflownotebooks/jupyter-scipy:v0.2.50
+          - kubeflownotebooks/jupyter-pytorch-full:v0.2.50
+          - kubeflownotebooks/jupyter-pytorch-full-cuda:v0.2.50
+          - kubeflownotebooks/jupyter-tensorflow-full:v0.2.50
+          - kubeflownotebooks/jupyter-tensorflow-full-cuda:v0.2.50
       imageGroupOne:
         # The container Image for the user's Group One Server
         # The annotation `notebooks.kubeflow.org/http-rewrite-uri: /`
