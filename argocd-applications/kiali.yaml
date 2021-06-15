@@ -41,14 +41,14 @@ spec:
         value: "20001"
       - name: cr.spec.external_services.prometheus.url
         value: http://kube-prometheus-stack-prometheus.monitoring:9090
+      - name: cr.spec.external_services.tracing.use_grpc
+        value: "false"
       - name: cr.spec.external_services.tracing.in_cluster_url
-        value: http://jaeger-operator-jaeger-collector.monitoring:9411
-      - name: cr.spec.external_services.tracing.url
-        value: http://jaeger-operator-jaeger-collector.monitoring:9411
+        value: http://jaeger-query.istio-system
       - name: cr.spec.external_services.grafana.url
-        value: http://kube-prometheus-stack-grafana.monitoring:80
+        value: https://grafana.abs-cloud.nl/grafana
       - name: cr.spec.external_services.grafana.in_cluster_url
-        value: http://kube-prometheus-stack-grafana.monitoring:80
+        value: http://kube-prometheus-stack-grafana.monitoring:80/grafana
       - name: cr.spec.external_services.grafana.dashboards[0].name
         value: "Istio Service Dashboard"
       - name: cr.spec.external_services.grafana.dashboards[0].variables.namespace

@@ -1,27 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jaeger-operator
+  name: jaeger
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://jaegertracing.github.io/helm-charts
-    targetRevision: 2.21.2
-    chart: jaeger-operator
+    targetRevision: 0.46.0
+    chart: jaeger
     helm:
      parameters:
-      - name : image.repository
-        value : jaegertracing/jaeger-operator
-      - name: image.tag
-        value: 1.22.0
-      - name: jaeger.create
-        value: "true"
-      - name: jaeger.namespace
-        value: monitoring
+      - name : collector.service.zipkin.port
+        value : "9411"
+    #   - name: image.tag
+    #     value: 1.22.0
+    #   - name: jaeger.create
+    #     value: "true"
+    #   - name: jaeger.namespace
+    #     value: istio-system
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: istio-system
   syncPolicy:
     automated:
       prune: true
