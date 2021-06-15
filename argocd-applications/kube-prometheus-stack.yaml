@@ -11,18 +11,12 @@ spec:
     chart: kube-prometheus-stack
     helm:
      parameters:
-      - name : grafana.ingress.enabled
-        value : "true"
-      - name : grafana.ingress.annotations.kubernetes\.io/ingress\.class
-        value : nginx
-      - name : grafana.ingress.annotations.external-dns\.alpha\.kubernetes\.io/hostname
-        value : grafana.abs-cloud.nl
-      - name: grafana.ingress.hosts[0]
-        value: grafana.abs-cloud.nl
-      - name: grafana.ingress.tls[0].secretName
-        value: grafana-abs-cloud-nl
-      - name: grafana.ingress.tls[0].hosts[0]
-        value: grafana.abs-cloud.nl
+      - name: grafana.admin.existingSecret
+        value: grafana-admin-secret
+      - name: grafana.adminUser
+        value: ""
+      - name: grafana.adminPassword
+        value: ""
       - name: grafana.persistence.type
         value: pvc
       - name: grafana.persistence.enabled
@@ -37,22 +31,6 @@ spec:
         value: https://grafana.abs-cloud.nl/grafana/
       - name: grafana.grafana\.ini.server.serve_from_sub_path
         value: "true"
-      - name: grafana.grafana\.ini.auth\.gitlab.enabled
-        value: "true"
-      - name: grafana.grafana\.ini.auth\.gitlab.allow_sign_up
-        value: "true"
-      - name: grafana.grafana\.ini.auth\.gitlab.scopes
-        value: read_api
-      - name: grafana.grafana\.ini.auth\.gitlab.auth_url
-        value: https://gitlab.abs-cloud.nl/oauth/authorize
-      - name: grafana.grafana\.ini.auth\.gitlab.token_url
-        value: https://gitlab.abs-cloud.nl/oauth/token
-      - name: grafana.grafana\.ini.auth\.gitlab.api_url
-        value: https://gitlab.abs-cloud.nl/api/v4
-      - name: grafana.grafana\.ini.auth\.gitlab.client_id
-        value: 19053ac7d6edb28b651ce9f0600242bf10ab620332427407ac24474347069e63
-      - name: grafana.grafana\.ini.auth\.gitlab.client_secret
-        value: 0b7e47ebfe16375cf92800ed8aad3fc457c29e92dbf4fdf0691c2ef81cb94cf9
       - name: grafana.plugins[0]
         value: vonage-status-panel
       - name: grafana.sidecar.dashboards.provider.foldersFromFilesStructure
@@ -69,40 +47,54 @@ spec:
         value: Viewer
       - name: grafana.grafana\.ini.security.allow_embedding
         value: "true"
-      # - name: grafana.additionalDataSources[0].name
-      #   value: Prometheus-Rook
-      # - name: grafana.additionalDataSources[0].type
-      #   value: prometheus
-      # - name: grafana.additionalDataSources[0].access
-      #   value: proxy
-      # - name: grafana.additionalDataSources[0].org_id
-      #   value: "1"
-      # - name: grafana.additionalDataSources[0].url
-      #   value: http://rook-prometheus.rook-ceph:9090
-      # - name: grafana.additionalDataSources[0].jsonData.tlsSkipVerify
-      #   value: "true"
-      # - name: grafana.additionalDataSources[0].jsonData.timeInterval
-      #   value: "5s"
-      # - name: grafana.additionalDataSources[0].version
-      #   value: "1"
-      # - name: grafana.additionalDataSources[0].editable
-      #   value: "true"
+      - name: grafana.grafana\.ini.auth\.proxy.enabled
+        value: "true"
+      - name: grafana.grafana\.ini.auth\.proxy.header_name
+        value: kubeflow-userid
+      - name: grafana.grafana\.ini.auth\.proxy.header_property
+        value: email
       - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.storageClassName
         value: rook-ceph-block
       - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.accessModes[0]
         value: ReadWriteOnce
       - name: prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage
         value: 50Gi
+      # - name: alertmanager.alertmanagerSpec.clusterAdvertiseAddress
+      #   value: \"true\"
       - name: prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues
         value: "false"
       - name: prometheus.prometheusSpec.serviceMonitorSelector
         value: ""
-      - name: kubeEtcd.endpoints[0]
-        value: "10.14.0.33"
-      - name: kubeEtcd.endpoints[1]
-        value: "10.14.0.2"
-      - name: kubeEtcd.endpoints[2]
-        value: "10.14.0.93"
+      - name: prometheus.prometheusSpec.podMonitorSelectorNilUsesHelmValues
+        value: "false"
+      - name: prometheus.prometheusSpec.podMonitorSelector
+        value: ""
+      - name: prometheus.prometheusSpec.ruleSelectorNilUsesHelmValues
+        value: "false"
+      - name: prometheus.prometheusSpec.ruleSelector
+        value: ""
+      - name: kubelet.serviceMonitor.cAdvisorMetricRelabelings[0].sourceLabels[0]
+        value: container
+      - name: kubelet.serviceMonitor.cAdvisorMetricRelabelings[0].regex
+        value: "(.+)"
+      - name: kubelet.serviceMonitor.cAdvisorMetricRelabelings[0].targetLabel
+        value: container_name
+      - name: kubelet.serviceMonitor.cAdvisorMetricRelabelings[0].action
+        value: replace
+      - name: kubelet.serviceMonitor.cAdvisorMetricRelabelings[1].sourceLabels[0]
+        value: pod
+      - name: kubelet.serviceMonitor.cAdvisorMetricRelabelings[1].regex
+        value: "(.+)"
+      - name: kubelet.serviceMonitor.cAdvisorMetricRelabelings[1].targetLabel
+        value: pod_name
+      - name: kubelet.serviceMonitor.cAdvisorMetricRelabelings[1].action
+        value: replace
+      # - name: kubeEtcd.endpoints[0]
+      #   value: "10.14.0.33"
+      # - name: kubeEtcd.endpoints[1]
+      #   value: "10.14.0.2"
+      # - name: kubeEtcd.endpoints[2]
+      #   value: "10.14.0.93"
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
