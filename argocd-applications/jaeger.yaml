@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://jaegertracing.github.io/helm-charts
-    targetRevision: 2.21.2
+    targetRevision: 2.21.3
     chart: jaeger-operator
     helm:
      parameters:
