@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-metrics-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard:  "cluster-metrics-dashboard"
+  annotations:
+      k8s-sidecar-target-directory: "/tmp/dashboards/KubeCost Dashboards"
+data:
+  attached-disks.json: |-

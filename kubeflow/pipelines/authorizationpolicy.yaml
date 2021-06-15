@@ -1,0 +1,24 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: kubeflow-allow-monitoring
+  namespace: kubeflow
+spec:
+  action: ALLOW
+  selector:
+    matchLabels:
+      app: workflow-controller
+  rules:
+  # - {}
+  - to:
+    - operation:
+        methods:
+          - "GET"
+        paths:
+          - "/metrics"
+    from:
+    - source:
+        namespaces:
+        - monitoring
+        # principals:
+        # - cluster.local/ns/monitoring/sa/kube-prometheus-stack-prometheus

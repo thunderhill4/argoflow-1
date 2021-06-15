@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: katib-controller
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/instance: katib
+spec:
+  namespaceSelector:
+    matchNames:
+      - kubeflow
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: katib
+  endpoints:
+  - port: metrics
+    path: /metrics
+    interval: 5s

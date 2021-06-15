@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: notebook-controller
+  namespace: monitoring
+  labels:
+    app: notebook-controller
+spec:
+  namespaceSelector:
+    matchNames:
+      - kubeflow
+  selector:
+    matchLabels:
+      app: notebook-controller
+  endpoints:
+  - path: /metrics
+    interval: 5s

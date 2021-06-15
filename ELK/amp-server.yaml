@@ -1,0 +1,29 @@
+apiVersion: apm.k8s.elastic.co/v1
+kind: ApmServer
+metadata:
+  name: apm
+spec:
+  version: 7.13.1
+  count: 1
+  elasticsearchRef:
+    name: elasticsearch-cluster
+  kibanaRef:
+    name: kibana
+  config:
+    http.enabled: true
+    http.port: 5066
+    http.host: 0.0.0.0
+    monitoring.enabled: false
+  podTemplate:
+    metadata:
+      labels:
+        stack-monitoring.elastic.co/type: beat # to allow autodiscover by metricbeat
+      annotations:
+        co.elastic.logs/enabled: "true"
+    spec:
+      containers:
+      - name: apm-server
+        ports:
+        - containerPort: 5066
+          name: monitoring
+          protocol: TCP

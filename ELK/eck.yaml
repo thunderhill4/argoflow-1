@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eck-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://helm.elastic.co
+    targetRevision: 1.6.0
+    chart: eck-operator
+    # helm:
+    #  parameters:
+    #   - name : collector.service.zipkin.port
+    #     value : "9411"
+    #   - name: image.tag
+    #     value: 1.22.0
+    #   - name: jaeger.create
+    #     value: "true"
+    #   - name: jaeger.namespace
+    #     value: istio-system
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: elastic-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

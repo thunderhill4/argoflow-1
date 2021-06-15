@@ -1,0 +1,45 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pipelines-workflow-controller
+  namespace: monitoring
+  labels:
+    # app: kubeflow-pipelines
+    application-crd-id: kubeflow-pipelines
+spec:
+  namespaceSelector:
+    matchNames:
+      - kubeflow
+  selector:
+    matchLabels:
+      # app: workflow-controller
+      # application-crd-id: kubeflow-pipelines
+      app.kubernetes.io/instance: pipelines
+  endpoints:
+  - port: metrics
+    path: /metrics
+    interval: 5s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: ml-pipelines
+  namespace: monitoring
+  labels:
+    # app: kubeflow-pipelines
+    # application-crd-id: kubeflow-pipelines
+    # app.kubernetes.io/instance: pipelines
+    app.kubernetes.io/component: ml-pipeline
+spec:
+  namespaceSelector:
+    matchNames:
+      - kubeflow
+  selector:
+    matchLabels:
+      # app: workflow-controller
+      # application-crd-id: kubeflow-pipelines
+      app.kubernetes.io/component: ml-pipeline
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 5s

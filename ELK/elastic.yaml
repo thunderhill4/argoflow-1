@@ -1,0 +1,45 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: elasticsearch-cluster
+  namespace: logging
+spec:
+  version: 7.13.1
+  nodeSets:
+    - name: default
+      config:
+        node.roles:
+          - master
+          - data
+          - ingest
+        node.attr.attr_name: attr_value
+        node.store.allow_mmap: false
+        xpack.monitoring.collection.enabled: true
+        xpack.monitoring.elasticsearch.collection.enabled: false
+      podTemplate:
+        metadata:
+          labels:
+            stack-monitoring.elastic.co/type: es # to allow autodiscover by metricbeat
+          annotations:
+            co.elastic.logs/enabled: "true"
+        spec:
+          containers:
+            - name: elasticsearch
+              resources:
+                requests:
+                  memory: 4Gi
+                  cpu: 1
+                limits:
+                  memory: 4Gi
+                  cpu: 2
+      volumeClaimTemplates:
+      - metadata:
+          name: elasticsearch-data
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 60Gi
+          storageClassName: rook-ceph-block
+      count: 3

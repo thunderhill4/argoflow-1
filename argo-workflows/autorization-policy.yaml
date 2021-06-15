@@ -1,0 +1,18 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-argo-ui
+  namespace: kubeflow
+spec:
+  action: ALLOW
+  rules:
+  - {}
+  # - from:
+  #   - source:
+  #       namespaces:
+  #       - istio-system
+  #       - kubeflow
+  #   to:
+  #   - operation:
+  #       paths:
+  #       - /argo-workflow

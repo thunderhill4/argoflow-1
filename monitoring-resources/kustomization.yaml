@@ -10,3 +10,4 @@ resources:
 - nvidia-dcgm-exporter-dashboard.yaml
 - pod-metrics-dashboard.yaml
 - namespace.yaml
+- grafana-admin-secret.yaml

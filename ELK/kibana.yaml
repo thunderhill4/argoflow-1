@@ -1,0 +1,35 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: kibana
+  namespace: logging
+spec:
+  version: 7.13.1
+  count: 1
+  elasticsearchRef:
+    name: elasticsearch-cluster
+  http:
+    service:
+      spec:
+        type: LoadBalancer # default is ClusterIP
+    # tls:
+    #   secretName: quickstart-kb-cert
+  config:
+    xpack.monitoring.kibana.collection.enabled: false
+    xpack.monitoring.collection.enabled: true
+  podTemplate:
+    metadata:
+      labels:
+        stack-monitoring.elastic.co/type: kb # to allow autodiscover by metricbeat
+      annotations:
+        co.elastic.logs/enabled: "true"
+    spec:
+      containers:
+        - name: kibana
+          resources:
+            requests:
+              memory: 1Gi
+              cpu: 0.5
+            limits:
+              memory: 2Gi
+              cpu: 2

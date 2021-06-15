@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kubeflow
+
+resources:
+- github.com/argoproj/argo-workflows/manifests/cluster-install?ref=d7ebc548e30cccc6b6bfc755f69145147dbe73f2 # tag=v3.0.4
+- https://github.com/kubeflow/pipelines/manifests/kustomize/third-party/minio/base
+- https://github.com/kubeflow/pipelines/manifests/kustomize/third-party/minio/options/istio
+- https://github.com/kubeflow/pipelines/manifests/kustomize/third-party/mysql/base
+- https://github.com/kubeflow/pipelines/manifests/kustomize/third-party/mysql/options/istio
+- https://github.com/kubeflow/pipelines/manifests/kustomize/third-party/metacontroller/base
+# pipelines
+- github.com/kubeflow/pipelines/manifests/kustomize/base/installs/multi-user
+- github.com/kubeflow/pipelines/manifests/kustomize/base/metadata/base
+- github.com/kubeflow/pipelines/manifests/kustomize/base/metadata/options/istio
+
+patchesStrategicMerge:
+- workflow-controller-configmap-patch.yaml
+- rbac-patch.yaml
+
+configurations:
+- params.yaml
+
+commonLabels:
+  application-crd-id: kubeflow-pipelines

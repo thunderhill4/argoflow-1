@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pod-metrics
+  name: pod-metrics-test-2
   namespace: monitoring
   labels:
-    grafana_dashboard:  "pod-metrics-dashboard"
+    grafana_dashboard:  "pod-metrics-test-dashboard"
+  annotations:
+    k8s-sidecar-target-directory: "/tmp/dashboards/Namespace test-user"
 data:
   pod-metrics.json: |-
     {
@@ -1595,14 +1597,24 @@ data:
       "templating": {
         "list": [
           {
+            "description": null,
+            "error": null,
+            "hide": 2,
+            "label": null,
+            "name": "namespace",
+            "query": "test-user",
+            "skipUrlSync": false,
+            "type": "constant"
+          },
+          {
             "allValue": null,
             "current": {
               "selected": true,
-              "text": "gpu-0",
-              "value": "gpu-0"
+              "text": "ml-pipeline-ui-artifact-69bbc58788-qmbzc",
+              "value": "ml-pipeline-ui-artifact-69bbc58788-qmbzc"
             },
             "datasource": null,
-            "definition": "label_values(pod)",
+            "definition": "label_values(kube_pod_info{namespace=\"$namespace\"}, pod)",
             "description": null,
             "error": null,
             "hide": 0,
@@ -1612,7 +1624,7 @@ data:
             "name": "pod",
             "options": [],
             "query": {
-              "query": "label_values(pod)",
+              "query": "label_values(kube_pod_info{namespace=\"$namespace\"}, pod)",
               "refId": "StandardVariableQuery"
             },
             "refresh": 1,
@@ -1664,6 +1676,7 @@ data:
             "allValue": null,
             "current": {
               "selected": true,
+              "tags": [],
               "text": [
                 "All"
               ],
@@ -1734,6 +1747,6 @@ data:
       },
       "timezone": "browser",
       "title": "Pod Metrics",
-      "uid": "hpcsyl6zhqk",
+      "uid": "pod-metrics-test-user",
       "version": 1
     }
