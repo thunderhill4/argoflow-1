@@ -23,10 +23,10 @@ data:
     spawnerFormDefaults:
       image:
         # The container Image for the user's Jupyter Notebook
-        value: kubeflownotebooks/jupyter-scipy:v0.2.52
+        value: kubeflownotebooks/jupyter-scipy:v0.2.54
         # The list of available standard container Images
         options:
-          - kubeflownotebooks/jupyter-scipy:v0.2.52
+          - kubeflownotebooks/jupyter-scipy:v0.2.54
           - kubeflownotebooks/jupyter-pytorch-full:v0.2.51
           - kubeflownotebooks/jupyter-pytorch-full-cuda:v0.2.51
           - kubeflownotebooks/jupyter-tensorflow-full:v0.2.50
