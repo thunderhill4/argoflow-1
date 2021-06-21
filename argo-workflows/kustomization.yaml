@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: kubeflow
 
 resources:
-- github.com/argoproj/argo-workflows/manifests/cluster-install?ref=d7ebc548e30cccc6b6bfc755f69145147dbe73f2 # tag=v3.0.4
+- github.com/argoproj/argo-workflows/manifests/cluster-install?ref=6d7887cce650f999bb6f788a43fcefe3ca398185 # tag=v3.0.8
 - https://github.com/kubeflow/pipelines/manifests/kustomize/third-party/minio/base
 - https://github.com/kubeflow/pipelines/manifests/kustomize/third-party/minio/options/istio
 - https://github.com/kubeflow/pipelines/manifests/kustomize/third-party/mysql/base
